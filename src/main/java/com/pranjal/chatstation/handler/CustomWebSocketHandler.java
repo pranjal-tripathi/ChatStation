@@ -1,4 +1,4 @@
-package handler;
+package com.pranjal.chatstation.handler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,12 @@ public class CustomWebSocketHandler extends TextWebSocketHandler{
 	@Override
 	public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
 		for(WebSocketSession webSocketSession : webSocketSessions) {
-			webSocketSession.sendMessage(message);
+			try {
+				webSocketSession.sendMessage(message);
+			}
+			catch(Exception e) {
+
+			}
 		}
 	}
 
